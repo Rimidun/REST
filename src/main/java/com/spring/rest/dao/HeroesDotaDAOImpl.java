@@ -1,11 +1,11 @@
 package com.spring.rest.dao;
 
+import com.spring.rest.entity.HeroesDota;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import com.spring.rest.entity.HeroesDota;
 
 import java.util.List;
 

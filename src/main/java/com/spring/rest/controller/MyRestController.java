@@ -1,10 +1,10 @@
 package com.spring.rest.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
 import com.spring.rest.entity.HeroesDota;
 import com.spring.rest.exeption.NoSuchEmployeeException;
 import com.spring.rest.service.HeroesDotaService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,44 +16,45 @@ public class MyRestController {
     private HeroesDotaService heroesDotaService;
 
     @GetMapping("/heroes")
-    public List<HeroesDota>showAllEmployees(){
+    public List<HeroesDota> showAllEmployees() {
         List<HeroesDota> allHeroesDota = heroesDotaService.getAllHeroesDota();
         return allHeroesDota;
     }
 
     @GetMapping("/heroes/{id}")
-    public HeroesDota getHeroesDota(@PathVariable int id){
+    public HeroesDota getHeroesDota(@PathVariable int id) {
         HeroesDota heroesDota = heroesDotaService.getHeroesDota(id);
 
-        if (heroesDota == null){
-            throw new NoSuchEmployeeException("There is no heroes with id = "+id + " in database");
+        if (heroesDota == null) {
+            throw new NoSuchEmployeeException("There is no heroes with id = " + id + " in database");
         }
         return heroesDota;
     }
 
 
     @PostMapping("/heroes")
-    public HeroesDota addNewHeroesDota(@RequestBody HeroesDota heroesDota){
+    public HeroesDota addNewHeroesDota(@RequestBody HeroesDota heroesDota) {
 
         heroesDotaService.saveHeroesDota(heroesDota);
         return heroesDota;
     }
-    @PutMapping ("/heroes")
-    public HeroesDota updateHeroesDota(@RequestBody HeroesDota heroesDota){
+
+    @PutMapping("/heroes")
+    public HeroesDota updateHeroesDota(@RequestBody HeroesDota heroesDota) {
 
         heroesDotaService.saveHeroesDota(heroesDota);
         return heroesDota;
     }
 
     @DeleteMapping("/heroes/{id}")
-    public String  deleteHeroesDota(@PathVariable int id){
+    public String deleteHeroesDota(@PathVariable int id) {
 
         HeroesDota heroesDota = heroesDotaService.getHeroesDota(id);
-        if (heroesDota==null){
-            throw new NoSuchEmployeeException("There is no heroes with id = "+ id + " in database");
+        if (heroesDota == null) {
+            throw new NoSuchEmployeeException("There is no heroes with id = " + id + " in database");
         }
         heroesDotaService.deleteHeroesDota(id);
-        return "heroes wit ID = "+ id + " was deleted";
+        return "heroes wit ID = " + id + " was deleted";
 
     }
 }
