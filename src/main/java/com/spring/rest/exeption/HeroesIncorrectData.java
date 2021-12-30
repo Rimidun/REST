@@ -4,8 +4,7 @@ public class HeroesIncorrectData {
 
     private String info;
 
-    public HeroesIncorrectData() {
-    }
+    public HeroesIncorrectData() {    }
 
     public String getInfo() {
         return info;

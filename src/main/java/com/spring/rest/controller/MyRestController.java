@@ -55,6 +55,5 @@ public class MyRestController {
         }
         heroesDotaService.deleteHeroesDota(id);
         return "heroes wit ID = " + id + " was deleted";
-
     }
 }
