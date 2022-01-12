@@ -17,12 +17,14 @@ public class MyRestController {
 
     @GetMapping("/heroes")
     public List<HeroesDota> showAllEmployees() {
+
         List<HeroesDota> allHeroesDota = heroesDotaService.getAllHeroesDota();
         return allHeroesDota;
     }
 
     @GetMapping("/heroes/{id}")
     public HeroesDota getHeroesDota(@PathVariable int id) {
+
         HeroesDota heroesDota = heroesDotaService.getHeroesDota(id);
 
         if (heroesDota == null) {
