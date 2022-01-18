@@ -17,14 +17,12 @@ public class MyRestController {
 
     @GetMapping("/heroes")
     public List<HeroesDota> showAllEmployees() {
-
         List<HeroesDota> allHeroesDota = heroesDotaService.getAllHeroesDota();
         return allHeroesDota;
     }
 
     @GetMapping("/heroes/{id}")
     public HeroesDota getHeroesDota(@PathVariable int id) {
-
         HeroesDota heroesDota = heroesDotaService.getHeroesDota(id);
 
         if (heroesDota == null) {
@@ -50,7 +48,6 @@ public class MyRestController {
 
     @DeleteMapping("/heroes/{id}")
     public String deleteHeroesDota(@PathVariable int id) {
-
         HeroesDota heroesDota = heroesDotaService.getHeroesDota(id);
         if (heroesDota == null) {
             throw new NoSuchEmployeeException("There is no heroes with id = " + id + " in database");
